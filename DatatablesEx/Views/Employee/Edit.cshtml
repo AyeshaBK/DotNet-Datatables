@@ -1,0 +1,44 @@
+﻿@model DatatablesEx.Models.Employee
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Edit", "Employee", FormMethod.Post, new { onsubmit = "return SubmitFrom(this)" }))
+{
+    @Html.HiddenFor(x => x.EmployeeID)
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, new { @class = "control-label" })
+        @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Position, new { @class = "control-label" })
+        @Html.EditorFor(x => x.Position, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(x => x.Position)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Office, new { @class = "control-label" })
+        @Html.EditorFor(x => x.Office, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Age, new { @class = "control-label" })
+        @Html.EditorFor(x => x.Age, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Salary, new { @class = "control-label" })
+        <div class="input-group">
+            <span class="input-group-addon">$</span>
+            @Html.EditorFor(x => x.Salary, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-danger" />
+    </div>
+}
